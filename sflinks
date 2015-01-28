@@ -1,0 +1,30 @@
+#!/bin/bash
+LINKDIR="/home/accesso/store"
+SFSTORES=`ls $LINKDIR/ | grep -i '^sf'`
+NEWVERSION=$1
+
+#MAKE SURE USER ENTERS NEW VERSION, ELSE TELL THEM AND EXIT
+if [ -z $NEWVERSION ]
+then
+	echo "Version not specified"
+	echo "usage example:  sflinks 5.4.3.2"
+	exit
+fi
+
+#MAKE SURE NEW VERSION EXISTS, ELSE EXIT
+if [ ! -d $LINKDIR/$NEWVERSION ]
+then
+	echo "Version $NEWVERSION does not exist"
+	echo "exiting script"
+	exit
+fi
+
+#DO DA MAGIC
+for store in $SFSTORES
+do
+	echo "Removing $store"
+	rm -rf $LINKDIR/$store
+	echo "Creating new link for $store"
+	ln -sf $NEWVERSION $LINKDIR/$store
+	
+done

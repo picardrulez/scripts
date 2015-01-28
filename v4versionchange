@@ -1,0 +1,20 @@
+#!/bin/bash
+STOREDIR="/usr/local/tomcat/webapps/ShopV4/store"
+ISLANDS=`ls $STOREDIR`
+CURRENTVERSION=`cat $STOREDIR/sixflags/econsignment.php | grep version | grep -v require | cut -d \" -f 4`
+NEWVERSION=$1
+
+#CHECK IF USER IS AN IDIOT
+if [ -z $1 ]
+then
+	echo "Version not specified"
+	echo "Usage example:  v4versionchange 4.0.686"
+	exit
+fi
+
+#MAKE STUFF DO
+for i in $ISLANDS
+do
+	echo "Changing $CURRENTVERSION to $NEWVERSION on $i PHP files"
+	sed -i "s/$CURRENTVERSION/$NEWVERSION/g" $STOREDIR/$i/*.php
+done
