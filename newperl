@@ -1,0 +1,10 @@
+#!/bin/bash
+TITLE="NEWPERL"
+OVERVIEW="This script uses a template to create a new perl scripts."
+USAGE="newperl nameOfNewScript"
+source /usr/local/share/geoffhelp
+NEWFILE=$1
+CAPSFILE=`echo $1 | sed 's/\(.*\)/\U\1/'`
+sed s/TITLE\=\'\'/TITLE\=\'$CAPSFILE\'/ < /usr/local/share/blankperl > $NEWFILE
+chmod +x $NEWFILE
+vim $NEWFILE

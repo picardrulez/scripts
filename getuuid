@@ -1,0 +1,6 @@
+#!/bin/bash
+TITLE="GETUUID"
+OVERVIEW="Used to get an unused UUID from a couchdb instance."
+USAGE="getuuid (noOptions)"
+source /usr/local/share/geoffhelp
+curl -X GET geoffsandbox:5984/_uuids

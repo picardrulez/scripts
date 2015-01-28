@@ -1,0 +1,23 @@
+#!/bin/bash
+TITLE="BASHSEARCH"
+OVERVIEW="Used to search through a user's .bashrc for a search term."
+USAGE="bashsearch SearchTerm"
+CURSHELL=`echo $SHELL | rev | cut -d "/" -f 1 | rev`
+if [ $CURSHELL == zsh ]
+then
+	MYCONF=".zshrc"
+elif [ $CURSHELL == bash ]
+then
+	MYCONF=".bashrc"
+else
+	echo "could not read shell"
+	exit
+fi 
+source /usr/local/share/geoffhelp
+if [ -z $1 ]
+then
+	bashsearch help
+	exit
+fi
+
+cat /home/gscott/$MYCONF | grep alias | grep $1

@@ -1,0 +1,19 @@
+#!/bin/bash
+TITLE="LANGUAGE"
+OVERVIEW="This script lists all scripts in /usr/local/bin and displays what language it is written in."
+USAGE="language (noOptions)"
+source /usr/local/share/geoffhelp
+
+for i in `ls /usr/local/bin/`
+do
+	FIRST=`head -n 1 /usr/local/bin/$i`
+	if [[ $FIRST == '#!/usr/bin/perl' ]]
+	then
+		echo "$i is a perl script"
+	elif [[ $FIRST == '#!/bin/bash' ]]
+	then
+		echo "$i is a bash script"
+	else
+		echo "$i is not a recognized scripting language"
+	fi
+done

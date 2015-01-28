@@ -1,0 +1,16 @@
+#!/bin/bash
+TITLE="KEYCOPY"
+OVERVIEW="This script pulls all ip addresses listed in .bashrc and copies ssh keys to the servers."
+USAGE="keycopy (noOptions sends key to all ip's in bashrc), keycopy supplyIpList"
+source /usr/local/share/geoffhelp
+if [ -z $1 ]
+then
+	ip=`cat ~/.bashrc | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'`
+else
+	ip=`cat $1`
+fi
+
+for i in $ip
+do
+	ssh-copy-id -i ~/.ssh/id_dsa.pub gscott@$i
+done

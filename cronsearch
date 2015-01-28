@@ -1,0 +1,10 @@
+#!/bin/bash
+TITLE="CRONSEARCH"
+OVERVIEW="Used to search through puppet manifests for a search term."
+USAGE="cronsearch wordToSearchFor"
+source /usr/local/share/geoffhelp
+for i in `ls /home/gscott/gitstuff/systems/puppet/manifests/nodes/`
+do
+	echo $i
+	cat /home/gscott/gitstuff/systems/puppet/manifests/nodes/$i | grep $1
+done

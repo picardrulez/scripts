@@ -1,0 +1,6 @@
+#!/bin/bash
+TITLE="FIXKEY"
+OVERVIEW="Used to copy an ssh key to a specified ip address."
+USAGE="fixkey ip.add.re.ss"
+source /usr/local/share/geoffhelp
+ssh-copy-id -i ~/.ssh/id_dsa gscott@$1

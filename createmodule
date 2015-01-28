@@ -1,0 +1,8 @@
+#!/bin/bash
+TITLE="CREATEMODULE"
+OVERVIEW="Creates new puppet module in git repo"
+USAGE="createmodule moduleName"
+source /usr/local/share/geoffhelp
+MODNAME=$1
+mkdir -p /home/gscott/systemsRepo/puppet/modules/$MODNAME/{files,manifests,templates}
+cd /home/gscott/systemsRepo/puppet/modules/$MODNAME/

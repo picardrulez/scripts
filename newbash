@@ -1,0 +1,15 @@
+#!/bin/bash
+if [ -z $1 ]
+then
+	echo "Must enter name of script"
+	exit
+fi
+TITLE="NEWBASH"
+OVERVIEW="This script uses a template to create a new bash script."
+USAGE="newbash nameOfNewScript"
+source /usr/local/share/geoffhelp
+NEWFILE=$1
+CAPSFILE=`echo $1 | sed 's/\(.*\)/\U\1/'` 
+sed s/TITLE\=\"\"/TITLE\=\"$CAPSFILE\"/ < /usr/local/share/blankbash > $NEWFILE
+chmod +x $NEWFILE
+vim $NEWFILE

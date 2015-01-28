@@ -1,0 +1,137 @@
+#!/usr/bin/perl
+#Version 0.1
+#Created by Geoff Scott
+use 5.010;
+if (($ARGV[0] eq "help") || ($ARGV[0] eq "h")){
+say "
+                 amMMMMMMMmw,:..,wmMMMMMMMMMmo
+                mMMMMMMMMMMMMM0MMMMMMMMMMMMMMMMm   USAGE:
+               0MM#MMEEEEMMMMM#'#MMMMMMMMMMMMMMM#   changehost  WEB/IMAGE SERVERNAME
+              MMEEEEEEEEEMMMMMM:!MMMMMMMMMMMMMMMM#   EXAMPLE:
+             #MMEEMMMMMMMMMMMMM:!MMMMMMMMMMMMMMMMMY	changehost web iadweb8
+            #MMMMMMMMMMMMMMMMM@ !MMMMMMMMMMMMMMMMMl	changehost image dfwstatic2
+           jMMMMMMMMMMMMMMMMMMM MMMMMMMMMMMMMMMMMMMb	TO USE NETWORK DNS:
+          aMMMMMUmmmmmmi~mmmmmgmmmemmmmmmf*****##~MMbq		changehost reset
+       '**M@~LmL,'*MMMmmmmmmmmmmmmm,__,jmmmmmMMm ' _,mmm4Mm
+      mmM0mmmy,_~~'''==-~~~~*##MMMMMMMMMMMMMMM'~,jm0M~~,__~##
+     wM'''''MMMMMMMMMMmmmmmmmm,__~ME,,mmmmmmmmmmM0M'~     'MA Qb
+    xMM,m-,  -q,  ~''MMMM0MMMMMMMM#mmMMMMMMMMM'''' __,,sBMA,'0# 9
+   j# mMT,MmmmmJ~    -,_,mma_~'MMM@@90MMM,wm**~7wm *MMMMMMMM#'MA'b
+   MP,MM6?MF  ~'*ms ,0MP~ o: ,Bmm *'~jL mEj.o~jmBM0y'''~.,4MM MM M
+   0b.MMH!i !Mm my, MMMM0mmA~MM0 ,dMGb.!m_Mmm.mMMM# MM0s#JM@,MM M
+   !# MMMMM MMC0MMM 0MMM0mmmMMM# *''=='''*MMMMMMMMM'dMM'mf&M,0Mf;f
+    MA 0MMM MMH~,MM  MMMMMMMM0'jMM,~M_jMm.!MMMMMMMf MP,HJmM,MM'jf
+     '#,~MMwMMLMMMM 1'MMMMMM@'4M#0MMMM@~9' MMMMM0', PjMMMMMM~,0@
+       ~Qm'MMM_MMMM M 0MMMM@ ,TpA_'JM',cam_'MMMM'&'d MMM@',mMM~
+        ~Mm'MMM''M 0LdMMMM'#MMMMMmmmMMMMMM,#MM'&M ##MM'mMM'
+         M0,~*M0m:?MMMMMMj#'''~_   _ '~'MAJMMM#'d'',m0'~
+          MMMmm,__,*MWMMMM_jmmmMMmmMMmmm,MM0Q@',mMMM'
+           ~'MM*#',_~MNMMMMMb_~'~~'''_mMMMMm',A ";
+exit
+}
+if ($ARGV[0] ne 'reset' && $ARGV[0] ne 'web' && $ARGV[0] ne 'images') {
+print "Argument not understood, please run \"changehost help\" for propper arguments\n";
+exit;
+}
+if ($ARGV[0] eq 'reset') {
+system("sed -i '4 c\\#WEBSERVER  this line MUST remain on line 4!!!!!' /etc/hosts");
+system("sed -i '5 c\\#IMAGESERVER  this line MUST remain on live 5!!!!!!' /etc/hosts");
+print "Host file has been reset!\n";
+exit
+}
+if ($ARGV[0] eq 'images') {
+given ($ARGV[1] ) {
+	when ( 'iadstatic1' ) { $ip = '172.29.2.1'; }
+	when ( 'iadstatic2' ) { $ip = '172.29.2.2'; }
+	when ( 'iadstatic3' ) { $ip = '172.29.2.3'; }
+	when ( 'dfwstatic1' ) { $ip = '172.31.2.1'; }
+	when ( 'dfwstatic2' ) { $ip = '172.31.2.2'; }
+	when ( 'dfwstatic3' ) { $ip = '172.31.2.3'; }
+	when ( 'phxstatic1' ) { $ip = '172.25.1.61'; }
+	when ( 'ordstatic1' ) { $ip = '172.27.2.1';}
+	default		{ say 'server not found' && exit }
+}
+$host = 'images.bookit.com';
+$line = '5';
+}
+if ($ARGV[0] eq 'web') {
+given( $ARGV[1] ) {
+	when ( 'dfwweb1' ) { $ip = '172.31.1.1'; }
+        when ( 'dfwweb2' ) { $ip = '172.31.1.2'; }
+        when ( 'dfwweb3' ) { $ip = '172.31.1.3'; }
+        when ( 'dfwweb4' ) { $ip = '172.31.1.4'; }
+        when ( 'dfwweb5' ) { $ip = '172.31.1.5'; }
+        when ( 'dfwweb6' ) { $ip = '172.31.1.6'; }
+        when ( 'dfwweb7' ) { $ip = '172.31.1.7'; }
+        when ( 'dfwweb8' ) { $ip = '172.31.1.8'; }
+        when ( 'dfwweb9' ) { $ip = '172.31.1.9'; }
+	when ( 'dfwweb10') { $ip = '172.31.1.10'; }
+	when ( 'dfwweb11') { $ip = '172.31.1.11'; }
+	when ( 'dfwweb12') { $ip = '172.31.1.12'; }
+	when ( 'dfwweb13') { $ip = '172.31.1.13'; }
+	when ( 'dfwweb14') { $ip = '172.31.1.14'; }
+	when ( 'dfwweb15') { $ip = '172.31.1.15'; }
+	when ( 'dfwweb16') { $ip = '172.31.1.16'; }
+	when ( 'dfwweb17') { $ip = '172.31.1.17'; }
+	when ( 'dfwweb18') { $ip = '172.31.1.18'; }
+        when ( 'iadweb1' ) { $ip = '172.29.1.1'; }
+        when ( 'iadweb2' ) { $ip = '172.29.1.2'; }
+        when ( 'iadweb3' ) { $ip = '172.29.1.3'; }
+        when ( 'iadweb4' ) { $ip = '172.29.1.4'; }
+        when ( 'iadweb5' ) { $ip = '172.29.1.5'; }
+        when ( 'iadweb6' ) { $ip = '172.29.1.6'; }
+        when ( 'iadweb7' ) { $ip = '172.29.1.7'; }
+        when ( 'iadweb8' ) { $ip = '172.29.1.8'; }
+        when ( 'iadweb9' ) { $ip = '172.29.1.9'; }
+	when ( 'iadweb10' ) { $ip = '172.29.1.10'; }
+	when ( 'iadweb11' ) { $ip = '172.29.1.11'; }
+	when ( 'iadweb12' ) { $ip = '172.29.1.12'; }
+	when ( 'iadweb13' ) { $ip = '172.29.1.13'; }
+	when ( 'iadweb14' ) { $ip = '172.29.1.14'; }
+	when ( 'iadweb15' ) { $ip = '172.29.1.15'; }
+	when ( 'iadweb16' ) { $ip = '172.29.1.16'; }
+	when ( 'iadweb17' ) { $ip = '172.29.1.17'; }
+	when ( 'iadweb18' ) { $ip = '172.29.1.18'; }
+	when ( 'ordweb1' ) { $ip = '172.27.1.1';}
+	when ( 'ordweb2' ) { $ip = '172.27.1.2';}
+	when ( 'ordweb3' ) { $ip = '172.27.1.3';}
+	when ( 'ordweb4' ) { $ip = '172.27.1.4';}
+	when ( 'ordweb5' ) { $ip = '172.27.1.5';}
+	when ( 'ordweb6' ) { $ip = '172.27.1.6';}
+	when ( 'ordweb7' ) { $ip = '172.27.1.7';}
+	when ( 'ordweb8' ) { $ip = '172.27.1.8';}
+	when ( 'ordweb9' ) { $ip = '172.27.1.9';}
+	when ( 'ordweb10' ) { $ip = '172.27.1.10';}
+	when ( 'ordweb11' ) { $ip = '172.27.1.11';}
+	when ( 'ordweb12' ) { $ip = '172.27.1.12';}
+	when ( 'ordweb13' ) { $ip = '172.27.1.13';}
+	when ( 'ordweb14' ) { $ip = '172.27.1.14';}
+	when ( 'ordweb15' ) { $ip = '172.27.1.15';}
+	when ( 'ordweb16' ) { $ip = '172.27.1.16';}
+	when ( 'ordweb17' ) { $ip = '172.27.1.17';}
+	when ( 'ordweb18' ) { $ip = '172.27.1.18';}
+	when ( 'phxweb1' ) { $ip = '172.25.1.1';}
+	when ( 'phxweb2' ) { $ip = '172.25.1.2';}
+	when ( 'phxweb3' ) { $ip = '172.25.1.3';}
+	when ( 'phxweb4' ) { $ip = '172.25.1.4';}
+	when ( 'phxweb5' ) { $ip = '172.25.1.5';}
+	when ( 'phxweb6' ) { $ip = '172.25.1.6';}
+	when ( 'phxweb7' ) { $ip = '172.25.1.7';}
+	when ( 'phxweb8' ) { $ip = '172.25.1.8';}
+	when ( 'phxweb9' ) { $ip = '172.25.1.9';}
+	when ( 'phxweb10' ) { $ip = '172.25.1.10';}
+	when ( 'phxweb11' ) { $ip = '172.25.1.11';}
+	when ( 'phxweb12' ) { $ip = '172.25.1.12';}
+	when ( 'phxweb13' ) { $ip = '172.25.1.13';}
+	when ( 'phxweb14' ) { $ip = '172.25.1.14';}
+	when ( 'phxweb15' ) { $ip = '172.25.1.15';}
+	when ( 'phxweb16' ) { $ip = '172.25.1.16';}
+	when ( 'phxweb17' ) { $ip = '172.25.1.17';}
+	when ( 'pfnweb1' ) { $ip = '10.10.10.244';}
+	default 	{ say 'server not found' && exit }
+}
+$host = 'www.bookit.com bookit.com extranet.bookit.com from.bookit.com';
+$line = '4';
+}
+print "Line number $line in hostfile update with \"$ip	$host\"\n";
+system("sed -i '$line c\\$ip	$host' /etc/hosts");

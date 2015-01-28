@@ -1,0 +1,287 @@
+#!/usr/bin/perl
+use 5.010;
+if ($ARGV[0] eq "help") {
+say "         
+                  amMMMMMMMmw,:..,wmMMMMMMMMMmo
+                mMMMMMMMMMMMMM0MMMMMMMMMMMMMMMMm   USAGE:
+               0MM#MMEEEEMMMMM#'#MMMMMMMMMMMMMMM#   ipfind (options) servername 
+             #MMEEMMMMMMMMMMMMM:!MMMMMMMMMMMMMMMMMY   OPTIONS:
+            #MMMMMMMMMMMMMMMMM@ !MMMMMMMMMMMMMMMMMl        drac, ip
+           jMMMMMMMMMMMMMMMMMMM MMMMMMMMMMMMMMMMMMMb       SERVERNAME EXAMPLES:
+          aMMMMMUmmmmmmi~mmmmmgmmmemmmmmmf*****##~MMbq            dfwdb3, iadweb8, dfwapp1
+       '**M@~LmL,'*MMMmmmmmmmmmmmmm,__,jmmmmmMMm ' _,mmm4Mm      COMMAND EXAMPLE:
+      mmM0mmmy,_~~'''==-~~~~*##MMMMMMMMMMMMMMM'~,jm0M~~,__~##	      ipfind ip iadstatic1
+     wM'''''MMMMMMMMMMmmmmmmmm,__~ME,,mmmmmmmmmmM0M'~     'MA Qb
+    xMM,m-,  -q,  ~''MMMM0MMMMMMMM#mmMMMMMMMMM'''' __,,sBMA,'0# 9
+   j# mMT,MmmmmJ~    -,_,mma_~'MMM@@90MMM,wm**~7wm *MMMMMMMM#'MA'b
+   MP,MM6?MF  ~'*ms ,0MP~ o: ,Bmm *'~jL mEj.o~jmBM0y'''~.,4MM MM M
+   0b.MMH!i !Mm my, MMMM0mmA~MM0 ,dMGb.!m_Mmm.mMMM# MM0s#JM@,MM M
+   !# MMMMM MMC0MMM 0MMM0mmmMMM# *''=='''*MMMMMMMMM'dMM'mf&M,0Mf;f
+    MA 0MMM MMH~,MM  MMMMMMMM0'jMM,~M_jMm.!MMMMMMMf MP,HJmM,MM'jf
+     '#,~MMwMMLMMMM 1'MMMMMM@'4M#0MMMM@~9' MMMMM0', PjMMMMMM~,0@
+       ~Qm'MMM_MMMM M 0MMMM@ ,TpA_'JM',cam_'MMMM'&'d MMM@',mMM~
+        ~Mm'MMM''M 0LdMMMM'#MMMMMmmmMMMMMM,#MM'&M ##MM'mMM'
+         M0,~*M0m:?MMMMMMj#'''~_   _ '~'MAJMMM#'d'',m0'~
+          MMMmm,__,*MWMMMM_jmmmMMmmMMmmm,MM0Q@',mMMM'
+           ~'MM*#',_~MNMMMMMb_~'~~'''_mMMMMm',A ";
+exit
+}
+
+if ($ARGV[0] eq 'ip') {
+given( $ARGV[1] ) {
+	when ( 'dfwfw1' ) { say '172.30.0.1' }
+	when ( 'dfwlb1' ) { say '172.31.0.202' }
+	when ( 'dfwwebvip' ) { say '172.31.0.20' }
+	when ( 'dfwdbslavevip' ) { say '172.31.0.21' }
+	when ( 'dfwstaticvip' ) { say '172.31.0.18' }
+	when ( 'dfwdbmastervip' ) { say '172.31.0.23' }
+        when ( 'dfwdb1' ) { say '172.30.1.1' }
+        when ( 'dfwdb2' ) { say '172.30.1.2' }
+        when ( 'dfwdb3' ) { say '172.30.1.3' }
+        when ( 'dfwdb4' ) { say '172.30.1.4' }
+        when ( 'dfwdb5' ) { say '172.30.1.5' }
+        when ( 'dfwdb6' ) { say '172.30.1.6' }
+        when ( 'dfwdb7' ) { say '172.30.1.7' }
+        when ( 'dfwdb8' ) { say '172.30.1.8' }
+        when ( 'dfwdb9' ) { say '172.30.1.9' }
+        when ( 'dfwdb10' ) { say '172.30.1.10' }
+	when ( 'dfwdb11' ) { say '172.30.1.11' }
+	when ( 'dfwdb12' ) { say '172.30.1.12' }
+	when ( 'dfwdb13' ) { say '172.30.1.13' }
+	when ( 'dfwdb14' ) { say '172.30.1.14' }
+	when ( 'dfwdb15' ) { say '172.30.1.15' }
+        when ( 'dfwfrom' ) { say '172.30.1.20' }
+	when ( 'dfwsessions' ) { say '172.30.1.70' }
+        when ( 'dfwweb1' ) { say '172.31.1.1' }
+        when ( 'dfwweb2' ) { say '172.31.1.2' }
+        when ( 'dfwweb3' ) { say '172.31.1.3' }
+        when ( 'dfwweb4' ) { say '172.31.1.4' }
+        when ( 'dfwweb5' ) { say '172.31.1.5' }
+        when ( 'dfwweb6' ) { say '172.31.1.6' }
+        when ( 'dfwweb7' ) { say '172.31.1.7' }
+        when ( 'dfwweb8' ) { say '172.31.1.8' }
+        when ( 'dfwweb9' ) { say '172.31.1.9' }
+	when ( 'dfwweb10' ) { say '172.31.1.10' }
+	when ( 'dfwweb11' ) { say '172.31.1.11' }
+	when ( 'dfwweb12' ) { say '172.31.1.12' }
+	when ( 'dfwweb13' ) { say '172.31.1.13' }
+	when ( 'dfwweb14' ) { say '172.31.1.14' }
+	when ( 'dfwweb15' ) { say '172.31.1.15' }
+	when ( 'dfwweb16' ) { say '172.31.1.16' }
+	when ( 'dfwweb17' ) { say '172.31.1.17' }
+	when ( 'dfwweb18' ) { say '172.31.1.18' }
+        when ( 'dfwstatic1' ) { say '172.31.2.1' }
+        when ( 'dfwstatic2' ) { say '172.31.2.2' }
+	when ( 'dfwstatic3' ) { say '172.31.2.3' }
+        when ( 'dfwapp1' ) { say '172.30.7.1' }
+        when ( 'dfwlog1' ) { say '172.30.7.2' }
+        when ( 'dfwmem1' ) { say '172.31.1.30' }
+        when ( 'dfwmem2' ) { say '172.31.1.31' }
+        when ( 'dfwmem3' ) { say '172.31.1.32' }
+	when ( 'dfwtea' ) { say '172.31.1.50' }
+	when ( 'iadfw1' ) { say '172.28.0.1' }
+	when ( 'iadlb1' ) { say '172.29.0.79' }
+	when ( 'iadwebvip' ) { say '172.29.0.82' }
+	when ( 'iaddbslavevip' ) { say '172.29.0.21' }
+	when ( 'iadstaticvip' ) { say '172.29.0.22' }
+	when ( 'iaddbmastervip' ) { say '172.29.0.23' }
+        when ( 'iaddb1' ) { say '172.28.1.1' }
+        when ( 'iaddb2' ) { say '172.28.1.2' }
+        when ( 'iaddb3' ) { say '172.28.1.3' }
+        when ( 'iaddb4' ) { say '172.28.1.4' }
+        when ( 'iaddb5' ) { say '172.28.1.5' }
+        when ( 'iaddb6' ) { say '172.28.1.6' }
+        when ( 'iaddb7' ) { say '172.28.1.7' }
+        when ( 'iaddb8' ) { say '172.28.1.8' }
+        when ( 'iaddb9' ) { say '172.28.1.9' }
+        when ( 'iaddb10' ) { say '172.28.1.10' }
+	when ( 'iaddb11' ) { say '172.28.1.11' }
+	when ( 'iaddb12' ) { say '172.28.1.12' }
+	when ( 'iaddb13' ) { say '172.28.1.13' }
+        when ( 'iadfrom' ) { say '172.28.1.20' }
+        when ( 'iadsessions' ) { say '172.28.1.70' }
+	when ( 'iadweb1' ) { say '172.29.1.1' }
+        when ( 'iadweb2' ) { say '172.29.1.2' }
+        when ( 'iadweb3' ) { say '172.29.1.3' }
+        when ( 'iadweb4' ) { say '172.29.1.4' }
+        when ( 'iadweb5' ) { say '172.29.1.5' }
+        when ( 'iadweb6' ) { say '172.29.1.6' }
+        when ( 'iadweb7' ) { say '172.29.1.7' }
+        when ( 'iadweb8' ) { say '172.29.1.8' }
+        when ( 'iadweb9' ) { say '172.29.1.9' }
+	when ( 'iadweb10' ) { say '172.29.1.10' }
+        when ( 'iadweb11' ) { say '172.29.1.11' }
+	when ( 'iadweb12' ) { say '172.29.1.12' }
+	when ( 'iadweb13' ) { say '172.29.1.13' }
+	when ( 'iadweb14' ) { say '172.29.1.14' }
+	when ( 'iadweb15' ) { say '172.29.1.15' }
+	when ( 'iadweb16' ) { say '172.29.1.16' }
+	when ( 'iadweb17' ) { say '172.29.1.17' }
+	when ( 'iadweb18' ) { say '172.29.1.18' }
+	when ( 'iadstatic1' ) { say '172.29.2.1' }
+        when ( 'iadstatic2' ) { say '172.29.2.2' }
+	when ( 'iadstatic3' ) { say '172.29.2.3' }
+        when ( 'iadapp1' ) { say '172.28.7.1' }
+        when ( 'iadlog1' ) { say '172.28.7.2' }
+        when ( 'iadmem1' ) { say '172.29.1.30' }
+        when ( 'iadmem2' ) { say '172.29.1.31' }
+        when ( 'iadmem3' ) { say '172.29.1.32' }
+	when ( 'iadtea' ) { say '172.29.1.50' }
+	when ( 'phxapp1' ) { say '172.24.1.81' }
+	when ( 'phxstatic1') { say '172.25.1.61' }
+	when ( 'phxlb1' ) { say '172.24.1.250' }
+	when ( 'phxweb1' ) { say '172.25.1.1' }
+	when ( 'phxweb2' ) { say '172.25.1.2' }
+	when ( 'phxweb3' ) { say '172.25.1.3' }
+	when ( 'phxweb4' ) { say '172.25.1.4' }
+	when ( 'phxweb5' ) { say '172.25.1.5' }
+	when ( 'phxweb6' ) { say '172.25.1.6' }
+	when ( 'phxweb7' ) { say '172.25.1.7' }
+	when ( 'phxweb8' ) { say '172.25.1.8' }
+	when ( 'phxweb9' ) { say '172.25.1.9' }
+	when ( 'phxweb10' ) { say '172.25.1.10' }
+	when ( 'phxweb11' ) { say '172.25.1.11' }
+	when ( 'phxweb12' ) { say '172.25.1.12' }
+	when ( 'phxweb13' ) { say '172.25.1.13' }
+	when ( 'phxweb14' ) { say '172.25.1.14' }
+	when ( 'phxweb15' ) { say '172.25.1.15' }
+	when ( 'phxweb16' ) { say '172.25.1.16' }
+	when ( 'phxweb17' ) { say '172.25.1.17' }
+	when ( 'phxdb1' ) { say '172.24.1.1' }
+	when ( 'phxdb2' ) { say '172.24.1.2' }
+	when ( 'phxdb3' ) { say '172.24.1.3' }
+	when ( 'phxdb4' ) { say '172.24.1.4' }
+	when ( 'phxdb5' ) { say '172.24.1.5' }
+	when ( 'phxdb6' ) { say '172.24.1.6' }
+	when ( 'phxdb7' ) { say '172.24.1.7' }
+	when ( 'phxdb8' ) { say '172.24.1.8' }
+	when ( 'phxdb9' ) { say '172.24.1.9' }
+	when ( 'phxdb10' ) { say '172.24.1.10' }
+	when ( 'phxdb11' ) { say '172.24.1.11' }
+	when ( 'phxdb12' ) { say '172.24.1.12' }
+	when ( 'phxdb13' ) { say '172.24.1.13' }
+	when ( 'phxdb14' ) { say '172.24.1.14' }
+	when ( 'phxfrom' ) { say '172.24.1.20' }
+	when ( 'phxsessions' ) { say '172.24.1.70' }
+	when ( 'phxmem1' ) { say '172.25.1.30' }
+	when ( 'phxmem2' ) { say '172.25.1.31' }
+	when ( 'phxmem3' ) { say '172.25.1.32' }
+	when ( 'phxlog1' ) { say '172.24.1.80' }
+	when ( 'ordlb1' ) { say '172.27.0.10' }
+	when ( 'ordstatic1' ) { say '172.27.2.1' }
+	when ( 'ordweb1' ) { say '172.27.1.1' }
+	when ( 'ordweb2' ) { say '172.27.1.2' }
+	when ( 'ordweb3' ) { say '172.27.1.3' }
+	when ( 'ordweb4' ) { say '172.27.1.4' }
+	when ( 'ordweb5' ) { say '172.27.1.5' }
+	when ( 'ordweb6' ) { say '172.27.1.6' }
+	when ( 'ordweb7' ) { say '172.27.1.7' }
+	when ( 'ordweb8' ) { say '172.27.1.8' }
+	when ( 'ordweb9' ) { say '172.27.1.9' }
+	when ( 'ordweb10' ) { say '172.27.1.10' }
+	when ( 'ordweb11' ) { say '172.27.1.11' }
+	when ( 'ordweb12' ) { say '172.27.1.12' }
+	when ( 'ordweb13' ) { say '172.27.1.13' }
+	when ( 'ordweb14' ) { say '172.27.1.14' }
+	when ( 'ordweb15' ) { say '172.27.1.15' }
+	when ( 'ordweb16' ) { say '172.27.1.16' }
+	when ( 'ordweb17' ) { say '172.27.1.17' }
+	when ( 'orddb1' ) { say '172.26.1.1' }
+	when ( 'orddb2' ) { say '172.26.1.2' }
+	when ( 'orddb3' ) { say '172.26.1.3' }
+	when ( 'orddb4' ) { say '172.26.1.4' }
+	when ( 'orddb5' ) { say '172.26.1.5' }
+	when ( 'orddb6' ) { say '172.26.1.6' }
+	when ( 'orddb7' ) { say '172.26.1.7' }
+	when ( 'orddb8' ) { say '172.26.1.8' }
+	when ( 'orddb9' ) { say '172.26.1.9' }
+	when ( 'orddb10' ) { say '172.26.1.10' }
+	when ( 'orddb11' ) { say '172.26.1.11' }
+	when ( 'orddb12' ) { say '172.26.1.12' }
+	when ( 'orddb13' ) { say '172.26.1.13' }
+	when ( 'ordfrom' ) { say '172.26.1.20' }
+	when ( 'ordsessions' ) { say '172.26.1.70' }
+	when ( 'ordmem1' ) { say '172.27.1.30' )
+	when ( 'ordmem2' ) { say '172.27.1.31' }
+	when ( 'ordmem3' ) { say '172.27.1.32' }
+	when ( 'ordapp1' ) { say '172.26.7.1' }
+	when ( 'ordlog1' ) { say '172.26.7.2' }
+	when ( 'ordtea' ) { say '172.27.1.50' }
+	when ( 'pfnasa' ) { say '172.16.0.1' }
+	when ( 'pfnvlan' ) { say '172.16.1.1' }
+	when ( 'dev' ) { say '172.16.2.250' }
+	when ( 'devdb' ) { say '172.16.1.15' }
+	when ( 'pfnweb1' ) { say '10.10.10.244' }
+	when ( 'pfndb1' ) { say '172.16.2.1' }
+	when ( 'pfndb5' ) { say '172.16.2.5' }
+	when ( 'wiki' ) { say '172.16.1.42' }
+	when ( 'jira' ) { say '172.16.1.82' }
+	when ( 'qa1' ) { say '172.16.2.150' }
+	when ( 'qa2' ) { say '172.16.2.151' }
+	when ( 'qa3' ) { say '172.16.2.152' }
+	when ( 'qa4' ) { say '172.16.2.170' }
+	when ( 'qa5' ) { say '172.16.2.153' }
+	when ( 'cmdbox' ) { say '172.16.2.220' }
+	when ( 'xenserver' ) { say '10.10.10.243' }
+        default         { say 'try again retard' }	
+}
+}
+if ($ARGV[0] eq 'drac') {
+given( $ARGV[1] ) {
+	when ( 'dfwdb1' ) { say '172.30.3.3' }
+	when ( 'dfwdb2' ) { say '172.30.3.4' }
+	when ( 'dfwdb3' ) { say '172.30.3.5' }
+	when ( 'dfwdb4' ) { say '172.30.3.6' }
+	when ( 'dfwdb5' ) { say '172.30.3.7' }
+	when ( 'dfwdb6' ) { say '172.30.3.8' }
+	when ( 'dfwdb7' ) { say '172.30.3.20' }
+	when ( 'dfwdb8' ) { say '172.30.3.21' }
+	when ( 'dfwdb9' ) { say '172.30.3.22' }
+	when ( 'dfwdb10' ) { say '172.30.3.23' }
+	when ( 'dfwfrom' ) { say '172.30.3.19' }
+	when ( 'dfwweb1' ) { say '172.31.3.9' }
+	when ( 'dfwweb2' ) { say '172.31.3.10' }
+	when ( 'dfwweb3' ) { say '172.31.3.11' }
+	when ( 'dfwweb4' ) { say '172.31.3.12' }
+	when ( 'dfwweb5' ) { say '172.31.3.24' }
+	when ( 'dfwweb6' ) { say '172.31.3.25' }
+	when ( 'dfwweb7' ) { say '172.31.3.26' }
+	when ( 'dfwweb8' ) { say '172.31.3.27' }
+	when ( 'dfwweb9' ) { say '172.31.3.28' }
+	when ( 'dfwstatic1' ) { say '172.31.3.13' }
+	when ( 'dfwstatic2' ) { say '172.31.3.14' }
+	when ( 'dfwapp1' ) { say '172.30.3.15' }
+	when ( 'dfwlog1' ) { say '172.30.3.18' }
+	when ( 'dfwmem1' ) { say '172.30.3.16' }
+	when ( 'dfwmem2' ) { say '172.30.3.17' }
+	when ( 'dfwmem3' ) { say '172.30.3.29' }
+	when ( 'iaddb1' ) { say '172.28.3.64' }
+	when ( 'iaddb2' ) { say '172.28.3.65' }
+	when ( 'iaddb3' ) { say '172.28.3.66' }
+	when ( 'iaddb4' ) { say '172.28.3.67' }
+	when ( 'iaddb5' ) { say '172.28.3.68' }
+	when ( 'iaddb6' ) { say '172.28.3.69' }
+	when ( 'iaddb7' ) { say '172.28.3.82' }
+	when ( 'iaddb8' ) { say '172.28.3.83' }
+	when ( 'iaddb9' ) { say '172.28.3.84' }
+	when ( 'iaddb10' ) { say '172.28.3.85' }
+	when ( 'iadfrom' ) { say '172.28.3.81' }
+	when ( 'iadweb1' ) { say '172.29.3.70' }
+	when ( 'iadweb2' ) { say '172.29.3.71' }
+	when ( 'iadweb3' ) { say '172.29.3.72' }
+	when ( 'iadweb4' ) { say '172.29.3.73' }
+	when ( 'iadweb5' ) { say '172.29.3.86' }
+	when ( 'iadweb6' ) { say '172.29.3.87' }
+	when ( 'iadweb7' ) { say '172.29.3.88' }
+	when ( 'iadweb8' ) { say '172.29.3.89' }
+	when ( 'iadweb9' ) { say '172.29.3.90' }
+	when ( 'iadstatic1' ) { say '172.29.3.74' }
+	when ( 'iadstatic2' ) { say '172.29.3.75' }
+	when ( 'iadapp1' ) { say '172.28.3.76' }
+	when ( 'iadlog1' ) { say '172.28.3.79' }
+	when ( 'iadmem1' ) { say '172.28.3.77' }
+	when ( 'iadmem2' ) { say '172.28.3.78' }
+	when ( 'iadmem3' ) { say '172.28.3.91' }
+	default     	{ say 'try again retard' }
+}
+}

@@ -1,0 +1,58 @@
+#!/bin/bash
+
+WORKLOCATION=~/emuwork/
+
+
+function progress(){
+clear
+echo -n "Creating work files"
+while true 
+    do
+        echo -n "."
+        sleep .5 
+    done
+}
+
+
+function randomWord {
+    WORDLOCATION=/usr/share/dict/words
+    randomWordsNum=`cat $WORDLOCATION | wc -l`
+    random_number=`od -N3 -An -i /dev/urandom | awk -v f=0 -v r="$randomWordsNum" '{printf "%i\n", f + r * $1 / 16777216}'`
+    sed `echo $random_number`"q;d" $WORDLOCATION
+}
+
+function makeFilez {
+    X=0
+    while [ "$X" -lt 500 ]
+    do
+        NEWWORD=`randomWord | sed "s/'/a/g"`
+        touch $WORKLOCATION$NEWWORD.bin
+        ((X++))
+    done
+}
+
+##CREATE WORK DIRECTORY
+if [ ! -d "$WORKLOCATION" ]
+then
+    mkdir $WORKLOCATION
+else
+    rm -rf $WORKLOCATION/*
+fi
+
+while [ 1 -lt 2 ]
+do
+    progress &
+    MYSELF=$!
+    makeFilez
+    kill $MYSELF &>/dev/null
+    echo -n "...done."
+    cd $WORKLOCATION
+    X=0
+    while [ "$X" -lt 500 ]
+    do
+        tar cfvz emuwork.tar.gz --remove-files -C $WORKLOCATION *.bin
+        tar xfvz emuwork.tar.gz
+        ((X++))
+    done
+    rm -rf $WORKLOCATION/*
+done

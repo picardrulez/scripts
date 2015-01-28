@@ -1,0 +1,18 @@
+#!/bin/bash
+TITLE="MULTICOPY"
+OVERVIEW="This script gets a list of ip addresses in .bashrc and then copies a specified file to a specified users home folder in all servers."
+USAGE="multicopy fileToCopy userToCopyTo"
+source /usr/local/share/geoffhelp
+webhosts=`cat ~/.bashrc | grep web | grep -v webfrom | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'`
+echo "scp $1 $2@hosts:"
+echo "Is that alright?"
+read answer
+if [ $answer == yes ]
+then
+	for i in $webhosts 
+	do
+		scp $1 $2@$i:
+	done
+else
+	echo "ok then"
+fi
