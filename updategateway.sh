@@ -1,6 +1,6 @@
 #!/bin/bash
 #Location of WEB-INF directory where gateway XML's are stored
-DIRTYBIRD="/usr/local/tomcat/webapps/ceGateway/WEB-INF"
+DIRLOCATION="/usr/local/tomcat/webapps/ceGateway/WEB-INF"
 
 #List of islands
 GATEWAYS="accesso23 accesso24 accesso25 accesso26 accesso27 accesso28 accesso90"
@@ -104,7 +104,7 @@ fi
 #For loop to give line number values to each section in the LINENUMBER array
 for i in $GATEWAYS
 do
-	LINENUMBER[$i]=`cat $DIRTYBIRD/$i.xml | sed -n '/'$SECTION'/='`
+	LINENUMBER[$i]=`cat $DIRLOCATION/$i.xml | sed -n '/'$SECTION'/='`
 
 done
 
