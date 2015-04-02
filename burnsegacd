@@ -1,0 +1,3 @@
+#!/bin/bash
+CUEFILE=$1
+cdrdao write --device /dev/cdrom --swap --speed 4 --eject "$CUEFILE"
